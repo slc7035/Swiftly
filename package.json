@@ -1,0 +1,20 @@
+{
+  "name": "Swifty",
+  "version": "0.0.0",
+  "description": "A website for Swifty",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://slc7035@bitbucket.org/slc7035/swifty.git"
+  },
+  "keywords": [
+    "Steven",
+    "Crespo",
+    "Swifty"
+  ],
+  "author": "Steven Crespo",
+  "license": "ISC"
+}

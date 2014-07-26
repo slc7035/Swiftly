@@ -1,0 +1,79 @@
+/*** Custom font for the page ***/
+@font-face {
+    font-family: 'ComicNueue-Angular-Light-Oblique';
+    src: url('/resources/fonts/ComicNeue-Angular-Light-Oblique.ttf');   
+}
+
+/*** set the font for the page ***/
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/*** Styling for the title bar ***/
+#title_bar {
+	text-align: center;
+	background: -webkit-linear-gradient(rgba(20,20,20,0.23) 0%, rgba(0,0,0,0.38) 100%);
+	height: 5em;
+}
+
+.header h1 {
+	padding-left: 1%;
+	float: left;
+}
+
+/*** CSS styling for the header ***/
+.header #nav_list {
+	list-style: none;
+	margin: 0px auto;
+	padding-bottom: 5px;
+}
+
+.header #nav_list li {
+	margin: 0px auto;
+	padding: 0px auto;
+	float: right;
+}
+
+.header #nav_list li:hover {
+	border-bottom: .5em solid  #50b4ff;
+}
+
+.header #nav_list li a {
+	text-decoration:none;
+	color: black;
+	display: block;
+	width: 5em;
+	height: 4em;
+}
+
+/*** Styling for the content of the page ***/
+.container {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	color: #081920;
+}
+
+/*** Styling for the intro section ***/
+#intro_row {
+	background: #62dda4;
+	height: auto;
+	width: 100%;
+	color: #239967;
+}
+
+/*** Styling for the projects section ***/
+#projects_row {
+	background: #73e9fc;
+	height: 600px;
+	width: 100%;
+}
+
+/*** Styling for the interests section ***/
+#interests_row {
+	background: #80f8ce;
+	height: 600px;
+	width: 100%;
+}
+
