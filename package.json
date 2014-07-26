@@ -1,19 +1,19 @@
 {
-  "name": "Swifty",
+  "name": "Swiftly",
   "version": "0.0.0",
-  "description": "A website for Swifty",
+  "description": "A website for Swiftly",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://slc7035@bitbucket.org/slc7035/swifty.git"
+    "url": "https://github.com/slc7035/Swiftly.git"
   },
   "keywords": [
     "Steven",
     "Crespo",
-    "Swifty"
+    "Swiftly"
   ],
   "author": "Steven Crespo",
   "license": "ISC"
