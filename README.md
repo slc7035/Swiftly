@@ -1,4 +1,4 @@
-Swifty
+Swiftly
 ======
 
 Personal Website
