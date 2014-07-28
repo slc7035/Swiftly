@@ -1,0 +1,203 @@
+@import "compass/css3";
+
+@font-face {
+    font-family: "quicksand-reg";
+    src: url('./resources/fonts/Quicksand-Regular.otf');
+}
+
+@font-face {
+    font-family: "quicksand-light";
+    src: url('./resources/fonts/Quicksand-Light.otf');
+}
+
+@function black($opacity) {
+  @return rgba(0, 0, 0, $opacity);
+}
+
+@function white($opacity) {
+  @return rgba(255, 255, 255, $opacity);
+}
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+$gear-color: #666;
+
+$gear-size: 60px;
+
+$large-gear-size: $gear-size * 2;
+
+$body-color: #909090;
+
+@mixin circle($shadow: true, $width: 60px, $border-rad: $width) {
+    height: $width;
+    width: $width;
+    @if $shadow == true {
+        @include box-shadow(0px -1px 0px 0px lighten($gear-color, 20%), 0px 1px 0px 0px darken($gear-color, 40%));
+    }
+    @include border-radius($border-rad/2);
+    
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: $body-color;
+  position: relative;
+  height: 100%;
+  margin: 0px;
+}
+
+@include keyframes(clockwise) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+
+@include keyframes(counter-clockwise) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(-360deg));
+  }
+}
+
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  height: 150px;
+  width: 200px;
+  margin-top: -100px;
+}
+
+.gear {
+  position: absolute;
+  @include circle();
+  &.large {
+    @include circle(true, $large-gear-size);
+    &:after {
+      $large-gear-inner-size: $large-gear-size - 24px;
+      @include circle(false, $large-gear-inner-size, $large-gear-inner-size);
+      margin-left: -($large-gear-inner-size / 2);
+      margin-top: -($large-gear-inner-size / 2);
+    }
+  }
+  $center: 8px;
+  &.one {
+    top: $center + 16px;
+    left: $center;
+  }
+  &.two {
+    top: $center + 35px;
+    left: $center + 55px;
+  }
+  &.three {
+    top: $center + 82px;
+    left: $center + 182px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    @include circle(false, $gear-size - 24px, 36px);
+    background: #333;
+    top: 50%;
+    left: 50%;
+    margin-left: -(($gear-size - 24px) / 2);
+    margin-top: -(($gear-size - 24px) / 2);
+    z-index: 1;
+  }
+}
+
+.gear-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: $gear-color;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  @include border-radius($gear-size / 2);
+  .large & {
+    @include border-radius($large-gear-size / 2);
+  }
+  .gear.one & {
+    -webkit-animation: clockwise 3s infinite linear;
+    -moz-animation: clockwise 3s infinite linear;
+  }
+  .gear.two & {
+    -webkit-animation: counter-clockwise 6s infinite linear;
+    -moz-animation: counter-clockwise 6s infinite linear;
+  }
+  .gear.three & {
+    -webkit-animation: clockwise 3s infinite linear;
+    -moz-animation: clockwise 3s infinite linear;
+  }
+  .bar {
+    $bar-width: 16px;
+    $bar-height: 8px;
+    $actual-height: $bar-width;
+    $actual-width: $bar-height * 2 + $gear-size;
+    background: $gear-color;
+    height: $actual-height;
+    width: $actual-width;
+    position: absolute;
+    left: 50%;
+    margin-left: -($actual-width / 2);
+    top: 50%;
+    margin-top: -($actual-height / 2);
+    @include border-radius(2px);
+    border-left: 1px solid white(0.1);
+    border-right: 1px solid white(0.1);
+    .large & {
+      $large-bar-width: $bar-height * 2 + $gear-size * 2;
+      margin-left: -($large-bar-width / 2);
+      width: $large-bar-width;
+    }
+    &:nth-child(2) {
+      @include transform(rotate(60deg));
+    }
+    &:nth-child(3) {
+      @include transform(rotate(120deg));
+    }
+    &:nth-child(4) {
+      @include transform(rotate(90deg));
+    }
+    &:nth-child(5) {
+      @include transform(rotate(30deg));
+    }
+    &:nth-child(6) {
+      @include transform(rotate(150deg));
+    }
+  }
+}
+
+h1 {
+  font-family: "quicksand-reg";
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 42px;
+  padding-top: 10px;
+  text-shadow: 1px 1px 0px #999;
+}
