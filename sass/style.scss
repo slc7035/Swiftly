@@ -39,7 +39,7 @@ $gear-size: 60px;
 
 $large-gear-size: $gear-size * 2;
 
-$body-color: #909090;
+$body-color: #DBDBDB;
 
 @mixin circle($shadow: true, $width: 60px, $border-rad: $width) {
     height: $width;
